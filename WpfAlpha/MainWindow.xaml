@@ -1,0 +1,30 @@
+﻿<Window x:Class="WpfAlpha.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAlpha"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="250" Width="489">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid DataContext="{Binding MainModel}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition ></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">Id страницы вк</TextBlock>
+            <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Text="{Binding VkId, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Grid.Column="1"/>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Grid.Row="1" Grid.Column="0">Статус страницы вк</TextBlock>
+            <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" IsReadOnly="True" Text="{Binding Status, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1"/>
+        </Grid>
+        <Button Command="{Binding ParseVkCommand}" FontSize="16" Grid.Row="1" Margin="30,10,30,10">Открыть и получить статус</Button>
+    </Grid>
+</Window>
